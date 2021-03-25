@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-
+import { Input } from "reactstrap";
 
 const Repos = (props) => {
     const [searchValue, setSearchValue] = useState("")
+    
     const repositories = props.repos.repos.filter((repo) => {
         if (searchValue === "") {
             return repo
@@ -29,17 +30,21 @@ const Repos = (props) => {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 col-md-3 offset-md-4">
                         <h3>All repositories</h3>
                         <hr />
                     </div>    
-                    <div className="search">
-                        <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} type="text" placeholder="Input repo name" className="search-input"/>
+                    <div className="col-12 col-md-3 offset-md-4">
+                    <Input type="text" id="searchReposArea" value={searchValue} 
+                            onChange={(e) => setSearchValue(e.target.value)}
+                            type="text" placeholder="Search..." />
                     </div>
 
                 </div>
                 <div className="row">
-                    {repositories}
+                    <div className="col-12 col-md-3 offset-md-4">
+                        {repositories}
+                    </div>    
                 </div>
             </div>
         );
