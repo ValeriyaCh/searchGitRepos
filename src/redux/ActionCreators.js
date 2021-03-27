@@ -1,5 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import { gitUrl } from './gitUrl';
+import history from '../components/HistoryComponent';
 
 export const setRepos = (repos) => ({
     type: ActionTypes.SET_REPOS,
@@ -11,42 +12,58 @@ export const setUser = (user) => ({
     payload: user
 });
 
+export const setErrorUser = (message) => ({
+    type: ActionTypes.SET_ERROR_USER,
+    payload: message
+});
+
+export const setErrorRepos = (message) => ({
+    type: ActionTypes.SET_ERROR_REPOS,
+    payload: message
+});
+
+export const resetUserState = () => ({
+    type: ActionTypes.RESET_USER_STATE
+})
+
+export const resetState = () => (dispatch) => {
+    return dispatch(resetUserState());
+}
+
+export const reposLoading = () => ({
+    type: ActionTypes.REPOS_LOADING
+});
+
+
+
 export const getRepos = (username) => (dispatch) => {
+
+    dispatch(reposLoading());
 
     return fetch(gitUrl + 'users/' + username + '/repos')
             .then(response => {
                 if (response.ok) {
-                return response;
+                    return response;
                 } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                error.response = response;
-                throw error;
+                    throw response;
                 }
-            },
-            error => {
-                    var errmess = new Error(error.message);
-                    throw errmess;
             })
             .then(response => response.json())
-            .then(repos => dispatch(setRepos(repos)));
+            .then(repos => dispatch(setRepos(repos)))
+            .catch(error => dispatch(setErrorRepos(error)));
     }
 
-export const getUser = (username = 'ValeriyaCh') => (dispatch) => {
+export const getUser = (username) => (dispatch) => {
 
     return fetch(gitUrl + 'users/' + username)
             .then(response => {
                 if (response.ok) {
-                return response;
+                    return response;
                 } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                error.response = response;
-                throw error;
+                    throw response;
                 }
-            },
-            error => {
-                    var errmess = new Error(error.message);
-                    throw errmess;
             })
             .then(response => response.json())
-            .then(repos => dispatch(setUser(repos)));
+            .then(user => {dispatch(setUser(user)); dispatch(getRepos(user.login)); history.push('/repos')})
+            .catch(error => dispatch(setErrorUser(error.status)));
     }

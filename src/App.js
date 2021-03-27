@@ -1,19 +1,21 @@
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Store } from './redux/store';
-import Main from './components/MainComponent'
+import Main from './components/MainComponent';
+import history from './components/HistoryComponent';
+
 
 const store = Store();
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router history={history}>
           <div className="App">
             <Main/>
           </div>
-      </BrowserRouter>
+      </Router>
   </Provider>
   );
 }

@@ -7,44 +7,21 @@
   min-height:400px;
 }
 
-.card {
-  height: 350px;
-  width: 250px;
-  margin: 20px 0px 20px 0px;
+.userCard {
+  height: 450px;
+  width: 300px;
+  margin: 0px;
 }
 
 .navbar {
-  padding: 20px;
+  min-height: 50px;
   background-color: rgb(233, 224, 222);
 }
 
-.search {
-  display: flex;
-  justify-content: center !important;
-  margin: 10px 0;
-}
-
-
-.loading{
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-  margin: 30vh auto;
-  border: 2px dashed red;
-  animation-name: search-fetching;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: linear;
-}
-
-@keyframes search-fetching {
-  0% {
-    transform: rotate(0deg);
-  }
-
-
-  100% {
-    transform: rotate(360deg) scale(1.3);
-  }
+.repoCard {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #555;
+  flex: 1 200px;
+  width: 320px;
 }
