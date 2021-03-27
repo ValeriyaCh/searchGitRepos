@@ -1,3 +1,6 @@
+# Welcome to Searcher Git Repositories page
+  This project was implemented on React with Redux
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
