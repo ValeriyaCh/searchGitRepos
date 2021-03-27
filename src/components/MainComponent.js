@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Repos from './ReposComponent';
 import Home from './HomeComponent';
 import {useSelector} from "react-redux";
@@ -7,6 +7,9 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 const Main = () => {
     const repos = useSelector(state => state.repos);
     const user = useSelector(state => state.user);
+    useEffect(() => {
+      document.title = "Search Git Repos"
+    }, [])
 
     return (
         <div>
