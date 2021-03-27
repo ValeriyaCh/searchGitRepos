@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/searchGitRepos/static/css/main.1e3f5d50.chunk.css",
+    "main.js": "/searchGitRepos/static/js/main.c4a78c13.chunk.js",
+    "main.js.map": "/searchGitRepos/static/js/main.c4a78c13.chunk.js.map",
+    "runtime-main.js": "/searchGitRepos/static/js/runtime-main.66ae84bb.js",
+    "runtime-main.js.map": "/searchGitRepos/static/js/runtime-main.66ae84bb.js.map",
+    "static/css/2.ce8e91f3.chunk.css": "/searchGitRepos/static/css/2.ce8e91f3.chunk.css",
+    "static/js/2.ba923afa.chunk.js": "/searchGitRepos/static/js/2.ba923afa.chunk.js",
+    "static/js/2.ba923afa.chunk.js.map": "/searchGitRepos/static/js/2.ba923afa.chunk.js.map",
+    "static/js/3.711e25fa.chunk.js": "/searchGitRepos/static/js/3.711e25fa.chunk.js",
+    "static/js/3.711e25fa.chunk.js.map": "/searchGitRepos/static/js/3.711e25fa.chunk.js.map",
+    "index.html": "/searchGitRepos/index.html",
+    "static/css/2.ce8e91f3.chunk.css.map": "/searchGitRepos/static/css/2.ce8e91f3.chunk.css.map",
+    "static/css/main.1e3f5d50.chunk.css.map": "/searchGitRepos/static/css/main.1e3f5d50.chunk.css.map",
+    "static/js/2.ba923afa.chunk.js.LICENSE.txt": "/searchGitRepos/static/js/2.ba923afa.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.css": "/searchGitRepos/static/media/fontawesome-webfont.f691f37e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66ae84bb.js",
+    "static/css/2.ce8e91f3.chunk.css",
+    "static/js/2.ba923afa.chunk.js",
+    "static/css/main.1e3f5d50.chunk.css",
+    "static/js/main.c4a78c13.chunk.js"
+  ]
+}
