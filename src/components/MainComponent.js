@@ -5,10 +5,10 @@ import {useSelector} from "react-redux";
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 const Main = () => {
-    const repos = useSelector(state => state.repos);
+    const repos = useSelector(state => state.repos); //get current state
     const user = useSelector(state => state.user);
     useEffect(() => {
-      document.title = "Search Git Repos"
+      document.title = "Search Git Repos" //change default title
     }, [])
 
     return (

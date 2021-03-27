@@ -54,7 +54,6 @@ export const getRepos = (username) => (dispatch) => {
     }
 
 export const getUser = (username) => (dispatch) => {
-
     return fetch(gitUrl + 'users/' + username)
             .then(response => {
                 if (response.ok) {

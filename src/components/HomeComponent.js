@@ -3,36 +3,28 @@ import {useDispatch} from "react-redux";
 import { getUser } from '../redux/ActionCreators';
 import { Button, InputGroup, Input } from 'reactstrap';
 
-
-function HandleError ({user}) {
-    if (user.errorUser) {
-        return(
-            <p> Not found. Try again. </p>
-        )
-    }
-    else {
-        return(
-            <div></div>
-        )
-    }
-}
-
-
 const Home = (props) => {
     const dispatch = useDispatch();
-    const [username, setUsername] = useState("");
-    
+    const [username, setUsername] = useState(""); // save user input
 
-    function searchHandler() {
-        dispatch(getUser(username))
+    function searchHandler() {    // on button click and no errors fetch user name
+        if (!error){
+            dispatch(getUser(username))
+        } 
     }
 
-    function enterSearchHandler(key) {
-        if (key === 'Enter') {
+    function enterSearchHandler(key) { // on "enter" and no errors fetch user name
+        if (key === 'Enter' && !error) {
             dispatch(getUser(username))
         }
     }
-    
+    function validate(value) { // validate user input, can contain only digits and letters,                               
+        var error = '';        //single hyphers(not in the beginning or ending), length < 40
+        if (value && !/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/.test(value.toLowerCase()))
+            error = 'Invalid username';
+        return error;
+    }
+    const error = validate(username);
 
     return (
         <div className="container">
@@ -43,15 +35,19 @@ const Home = (props) => {
                 </div>
             <div className="row">
                 <div className="col-12 col-md-3 offset-md-4">
+                    {/* {Search input} */}
                     <InputGroup className="mb-3">
                         <Input type="text" id="userSearch" value={username} onKeyDown={(e) => enterSearchHandler(e.key)} onChange={(e) => setUsername(e.target.value)} placeholder="Input username"/>
                         <Button onClick={()=> searchHandler()} color="secondary">Search</Button>
                     </InputGroup>
+                    
                 </div>
             </div>
             <div className="row">
                 <div className="col-12 col-md-3 offset-md-4">
-                     <HandleError user={props.user}/>
+                    {/*  Output error messages */}
+                        <p className='errorText'>{error}</p> 
+                        {props.user.errorUser ? (<h6>Not found. Try again.</h6>) : (<div></div>)}
                 </div>
             </div>
         </div>

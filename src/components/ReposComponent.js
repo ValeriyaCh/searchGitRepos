@@ -14,11 +14,9 @@ function RenderUserCard (user){
     }
     else{ 
         return(
-            <FadeTransform
-                in
+            <FadeTransform in
                 transformProps={{
-                    exitTransform: 'scale(0.5) translateY(-50%)'
-                }}>
+                    exitTransform: 'scale(0.5) translateY(-50%)' }}>
                 <Card className='userCard'>
                     <CardImg top width="100%" src={user.user.avatar_url} />
                     <CardBody>
@@ -52,7 +50,7 @@ function RenderRepoCard ({repo}){
 }
 
 const Repos = (props) => {
-    const [searchValue, setSearchValue] = useState("")
+    const [searchValue, setSearchValue] = useState("");
     const dispatch = useDispatch();
 
     const repositories = props.repos.repos.filter((repo) => { // search filter and rendering of each repo
