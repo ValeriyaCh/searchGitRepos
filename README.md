@@ -1,6 +1,6 @@
 # Welcome to Searcher Git Repositories page
-  This project was implemented on React with Redux
-
+  This project was implemented on React with Redux.
+    There are two web pages. In the home page you can enter github existing username and receive the whole repositories of the user, user card and search filter.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
