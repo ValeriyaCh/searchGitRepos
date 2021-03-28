@@ -20,7 +20,7 @@ const Home = (props) => {
     }
     function validate(value) { // validate user input, can contain only digits and letters,                               
         var error = '';        //single hyphers(not in the beginning or ending), length < 40
-        if (value && !/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/.test(value.toLowerCase()))
+        if (value && !/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i.test(value))
             error = 'Invalid username';
         return error;
     }
@@ -37,8 +37,10 @@ const Home = (props) => {
                 <div className="col-12 col-md-3 offset-md-4">
                     {/* {Search input} */}
                     <InputGroup className="mb-3">
-                        <Input type="text" id="userSearch" value={username} onKeyDown={(e) => enterSearchHandler(e.key)} onChange={(e) => setUsername(e.target.value)} placeholder="Input username"/>
-                        <Button onClick={()=> searchHandler()} color="secondary">Search</Button>
+                        <Input type="text" id="userSearch" value={username} 
+                            onKeyDown={(e) => enterSearchHandler(e.key)} 
+                            onChange={(e) => setUsername(e.target.value)} placeholder="Search user"/>
+                        <Button title="homeButton" onClick={()=> searchHandler()} color="secondary">Search</Button>
                     </InputGroup>
                     
                 </div>

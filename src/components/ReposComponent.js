@@ -80,18 +80,22 @@ const Repos = (props) => {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-12 col-md-4 offset-md-4">
-                        <h3>All repositories</h3>
-                    </div>    
+                    <div className="row-content">
+                        <div className="col-12">
+                            <h3>All repositories</h3>
+                        </div> 
+                 </div>  
                 </div>
                 <div className="row">
-                    <div className="col-12 col-md-4 offset-md-4">
-                        <Input type="text" id="searchReposArea" value={searchValue} 
-                                onChange={(e) => setSearchValue(e.target.value)}
-                                placeholder="Search..." />
+                    <div className="row-content">
+                        <div className="col-12">
+                            <Input className="search" type="text" id="searchReposArea" value={searchValue} 
+                                    onChange={(e) => setSearchValue(e.target.value)}  style={{width: "315px"}}
+                                    placeholder="Search..." />
+                    </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="form-row">
                     <div className="col-12 col-md-3">
                         <RenderUserCard user={props.user}/>
                     </div>
